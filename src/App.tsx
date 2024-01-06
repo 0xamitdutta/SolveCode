@@ -3,6 +3,7 @@ import './App.css'
 import { onAuthStateChanged, signOut } from "firebase/auth"
 import { app, auth } from './config/firebase'
 import { Signup } from './components/Signup'
+import { Header } from './components/Header'
 
 import { RecoilRoot, useRecoilState } from 'recoil'
 import { userState } from './state/atoms/userState'
@@ -47,22 +48,7 @@ const StoreApp = () => {
 
   return (
     <div>
-      <h1 className='text-2xl'>Welcome {user.user.email}</h1>
-      <button
-        onClick={() => {
-          signOut(auth).then(() => {
-            // Sign-out successful.
-            setUser({
-              isLoading: false,
-            });
-          }).catch((error) => {
-            // An error happened.
-            console.log(error);
-          });
-        }}
-      >
-        Sign out
-      </button>
+      <Header />
     </div>
   )
 }
