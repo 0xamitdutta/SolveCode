@@ -2,8 +2,14 @@ import { useEffect } from 'react'
 import './App.css'
 import { onAuthStateChanged, signOut } from "firebase/auth"
 import { app, auth } from './config/firebase'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Signup } from './components/Signup'
 import { Header } from './components/Header'
+import { Landing } from './components/Landing'
+import { About } from './components/About'
+import { Problems } from './components/Problems'
+import { Submissions } from './components/Submissions'
+import { Leaderboard } from './components/Leaderboard'
 
 import { RecoilRoot, useRecoilState } from 'recoil'
 import { userState } from './state/atoms/userState'
@@ -47,9 +53,16 @@ const StoreApp = () => {
   }
 
   return (
-    <div>
+    <Router>
       <Header />
-    </div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/problems" element={<Problems />} />
+        <Route path="/submissions" element={<Submissions />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+      </Routes>
+    </Router>
   )
 }
 
