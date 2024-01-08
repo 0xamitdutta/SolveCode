@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
-import { onAuthStateChanged, signOut } from "firebase/auth"
-import { app, auth } from './config/firebase'
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from './config/firebase'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Signup } from './components/Signup'
 import { Header } from './components/Header'
